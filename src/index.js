@@ -68,7 +68,7 @@ if (isTouchDevice) {
 } else {
     output.addEventListener('click', (event)=> {
         event.preventDefault();
-        moveInstruction();
+        moveInstruction()
         getFact();
     }, false)
 }
