@@ -1,0 +1,25 @@
+{
+  "short_name": "facts",
+  "name": "cat facts",
+  "icons": [
+    {
+      "src": "/cat-facts/src/assets/58c815ff8847615acd95ee46.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/cat-facts/src/assets/58c815ff8847615acd95ee46.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/cat-facts/src/assets/58c815ff8847615acd95ee46.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#fbdaf9",
+  "background_color": "#fbdaf9"
+}
