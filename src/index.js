@@ -1,19 +1,22 @@
 const output = document.querySelector("#output");
 const instruction = document.querySelector("#instruction-text");
 const isTouchDevice = checkTouchScreen();
-let textBlock; 
+const textBlock = createBlock("", 'fact');
+
 
 function checkTouchScreen() {
     return 'ontouchstart' in window;
 };
 function createBlock(content, id) {
     const block = document.createElement('p');
+    block.classList.add('text-block');
     block.innerText = content;
     block.id = id;
 
     return block;
 }
 async function getFact() {
+    textBlock.innerText = "\u23F3";
     const url = 'https://catfact.ninja/fact';
     const xhr = new XMLHttpRequest();
 
@@ -25,7 +28,7 @@ async function getFact() {
             return;
         }
         if(textBlock) {
-            textBlock.remove();
+            textBlock.innerText = '';
         }
 
         const response = new Promise((resolve) => {
@@ -33,8 +36,7 @@ async function getFact() {
         })
 
         response.then((data)=> {
-            textBlock = createBlock(data.fact, 'fact');
-            output.insertAdjacentElement('afterbegin', textBlock);
+            textBlock.innerText = data.fact;
         })
 
         
@@ -44,7 +46,9 @@ async function getFact() {
         output.innerText = 'The request wasn\'t fullfilled. Please, try again';
     }
 
-    xhr.send();
+    setTimeout(()=> {
+        xhr.send();
+    }, 1000)
 };
 function setInstruction(isTouchDevice) {
     const touchInstruction = 'Tap twice to see a random fact';
@@ -57,12 +61,14 @@ function setInstruction(isTouchDevice) {
     )
 }
 
+output.insertAdjacentElement('afterbegin', textBlock);
 instruction.innerText = setInstruction(isTouchDevice);
 if (isTouchDevice) {
     doubleTap(output,getFact);
 } else {
     output.addEventListener('click', (event)=> {
         event.preventDefault();
+        moveInstruction();
         getFact();
     }, false)
 }
@@ -77,6 +83,7 @@ function doubleTap(element, callback) {
         if (tapLength < 500 && tapLength > 0) {
         //double tap
             event.preventDefault();
+            moveInstruction();
             callback();
         } else {
             //single tap
@@ -86,4 +93,8 @@ function doubleTap(element, callback) {
         }
         lastTap = currentTime;
     });
+}
+
+function moveInstruction() {
+    instruction.classList.remove('fact__instruction-text_centerred')
 }
