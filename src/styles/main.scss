@@ -34,7 +34,7 @@
         border-radius: 45px;
         width: 90%;
         height: 90%;
-        padding: 20px;
+        padding: 2%;
         background-color: rgba(255, 255, 255, 0.411);
 
         &:hover {
@@ -49,5 +49,19 @@
         font-weight: 700;
         font-size: clamp(1rem, 4cqw, 26px);
         text-align: center;
+        margin: auto auto 16%;
+
+        &_centerred {
+            margin: 0 auto auto;
+        }
     }
+
+
+}
+
+.text-block {
+    text-align: center;
+    margin: auto auto 2cqw;
+    color: #62367d;
+    font-size: clamp(23px, 3.5vw, 27px);
 }
