@@ -8,6 +8,6 @@
 
 ![screenshot 1](https://github.com/Foxy-desu/cat-facts/assets/87661341/457687a3-5cdd-4c73-b9bd-03d7981507f3)
 
-![screenshot 2](https://github.com/Foxy-desu/cat-facts/assets/87661341/27efb857-913b-4479-8edc-d62960482d40)
+![screenshot 2](https://github.com/Foxy-desu/cat-facts/assets/87661341/649816c9-c474-401b-8191-fe30f066c6b3)
 
 
